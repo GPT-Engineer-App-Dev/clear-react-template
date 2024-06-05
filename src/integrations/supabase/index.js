@@ -25,7 +25,6 @@ Events // table: events
     created_at: string
     name: string
     date: string
-    description: string
     venue_id: number
     is_starred: boolean
 
