@@ -27,9 +27,7 @@ Events // table: events
     date: string
     description: string
     venue_id: number
-    
     is_starred: boolean
-    
 
 Comments // table: comments
     id: number
