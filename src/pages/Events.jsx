@@ -1,12 +1,16 @@
 import { Box, Container, Flex, Text, VStack, Link } from "@chakra-ui/react";
+import { useEvents } from "../integrations/supabase/index.js";
 
 const Events = () => {
-  // Placeholder events data
-  const events = [
-    { name: "Event 1", date: "2023-10-01", description: "Description for Event 1" },
-    { name: "Event 2", date: "2023-10-15", description: "Description for Event 2" },
-    { name: "Event 3", date: "2023-11-05", description: "Description for Event 3" },
-  ];
+  const { data: events, error, isLoading } = useEvents();
+
+  if (isLoading) {
+    return <Text>Loading...</Text>;
+  }
+
+  if (error) {
+    return <Text>Error: {error.message}</Text>;
+  }
 
   return (
     <Box>
@@ -29,8 +33,8 @@ const Events = () => {
       <Container maxW="container.lg" py={8}>
         <VStack spacing={4}>
           <Text fontSize="2xl" fontWeight="bold">Events</Text>
-          {events.map((event, index) => (
-            <Box key={index} p={4} borderWidth="1px" borderRadius="md" w="100%">
+          {events.map((event) => (
+            <Box key={event.id} p={4} borderWidth="1px" borderRadius="md" w="100%">
               <Text fontSize="xl" fontWeight="bold">{event.name}</Text>
               <Text>{event.date}</Text>
               <Text>{event.description}</Text>
