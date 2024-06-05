@@ -17,6 +17,7 @@ const fromSupabase = async (query) => {
     return data;
 };
 
+// Update the types section to reflect the latest spec from openapi.json
 /* supabase integration types
 
 Events // table: events
