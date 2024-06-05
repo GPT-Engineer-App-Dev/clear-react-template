@@ -36,8 +36,13 @@ const Events = () => {
           {events.map((event) => (
             <Box key={event.id} p={4} borderWidth="1px" borderRadius="md" w="100%">
               <Text fontSize="xl" fontWeight="bold">{event.name}</Text>
-              <Text>{event.date}</Text>
-              <Text>{event.description}</Text>
+              <Text>Date: {event.date}</Text>
+              <Text>Description: {event.description}</Text>
+              <Text>Venue ID: {event.venue_id}</Text>
+              <Text>Pinned: {event.is_pinned ? "Yes" : "No"}</Text>
+              <Text>Starred: {event.is_starred ? "Yes" : "No"}</Text>
+              <Text>Type: {event.type}</Text>
+              <Text>Cancelled: {event.cancelled ? "Yes" : "No"}</Text>
             </Box>
           ))}
         </VStack>
