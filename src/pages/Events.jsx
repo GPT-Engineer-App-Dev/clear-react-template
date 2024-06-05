@@ -1,6 +1,13 @@
 import { Box, Container, Flex, Text, VStack, Link } from "@chakra-ui/react";
 
-const Index = () => {
+const Events = () => {
+  // Placeholder events data
+  const events = [
+    { name: "Event 1", date: "2023-10-01", description: "Description for Event 1" },
+    { name: "Event 2", date: "2023-10-15", description: "Description for Event 2" },
+    { name: "Event 3", date: "2023-11-05", description: "Description for Event 3" },
+  ];
+
   return (
     <Box>
       {/* Navigation Bar */}
@@ -21,8 +28,14 @@ const Index = () => {
       {/* Main Content Area */}
       <Container maxW="container.lg" py={8}>
         <VStack spacing={4}>
-          <Text fontSize="2xl">Welcome to My Website</Text>
-          <Text>This is a simple React app with a basic structure.</Text>
+          <Text fontSize="2xl" fontWeight="bold">Events</Text>
+          {events.map((event, index) => (
+            <Box key={index} p={4} borderWidth="1px" borderRadius="md" w="100%">
+              <Text fontSize="xl" fontWeight="bold">{event.name}</Text>
+              <Text>{event.date}</Text>
+              <Text>{event.description}</Text>
+            </Box>
+          ))}
         </VStack>
       </Container>
 
@@ -36,4 +49,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Events;
