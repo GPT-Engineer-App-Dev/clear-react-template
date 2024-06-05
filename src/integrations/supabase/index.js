@@ -27,10 +27,9 @@ Events // table: events
     date: string
     description: string
     venue_id: number
-    is_pinned: boolean
+    
     is_starred: boolean
-    type: string
-    cancelled: boolean
+    
 
 Comments // table: comments
     id: number
